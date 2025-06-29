@@ -36,6 +36,13 @@ export default defineConfig(async ({ command }) => ({
           shareScope: "default",
         },
       },
+      // this is not working
+      // shared: {
+      //   vue: {
+      //     singleton: true,
+      //     requiredVersion: "^3.2.45",
+      //   },
+      // },
       exposes: {},
       filename: "remoteEntry.js",
     }),

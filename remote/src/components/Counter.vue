@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
-import { useStore } from "../stores/counter";
-const store = useStore();
-const { count } = storeToRefs(store);
+import { ref } from "vue";
+
+const testCount = ref(0);
+
+function handleClick() {
+  console.log(testCount.value);
+  testCount.value = testCount.value + 1;
+}
 </script>
 
 <template>
@@ -16,9 +20,9 @@ const { count } = storeToRefs(store);
       padding: 0.5rem 1rem 0.5rem 1rem;
       color: rgb(24, 24, 24);
     "
-    @click="store.increment"
+    @click="handleClick"
   >
-    Remote counter: {{ count }}
+    Remote counter: {{ testCount }}
   </button>
 </template>
 

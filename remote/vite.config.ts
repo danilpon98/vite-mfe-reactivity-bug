@@ -21,7 +21,7 @@ export default defineConfig(async ({ command, mode }) => {
           console.info("selfEnv", selfEnv);
           writeFileSync(
             "./src/enviroment.ts",
-            `export default ${JSON.stringify(selfEnv, null, 2)};`
+            `export default ${JSON.stringify(selfEnv, null, 2)};`,
           );
         },
       },
@@ -32,6 +32,13 @@ export default defineConfig(async ({ command, mode }) => {
           "./remote-app": "./src/App.vue",
         },
         remotes: {},
+        // this is not working
+        // shared: {
+        //   vue: {
+        //     singleton: true,
+        //     requiredVersion: "^3.2.45",
+        //   },
+        // },
       }),
       vue(),
       vueJsx(),
@@ -41,7 +48,7 @@ export default defineConfig(async ({ command, mode }) => {
         "@": path.resolve(__dirname, "src"),
         vue: path.resolve(
           __dirname,
-          "./node_modules/vue/dist/vue.runtime.esm-bundler.js"
+          "./node_modules/vue/dist/vue.runtime.esm-bundler.js",
         ),
         pinia: path.resolve(__dirname, "./node_modules/pinia/dist/pinia.mjs"),
         shared: path.resolve(__dirname, "../shared/shared"),

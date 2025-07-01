@@ -13,10 +13,10 @@ export default defineConfig(async ({ command }) => ({
   },
   resolve: {
     alias: {
-      vue: path.resolve(
-        __dirname,
-        "./node_modules/vue/dist/vue.runtime.esm-bundler.js",
-      ),
+      // vue: path.resolve(
+      //   __dirname,
+      //   "./node_modules/vue/dist/vue.runtime.esm-bundler.js"
+      // ),
       pinia: path.resolve(__dirname, "./node_modules/pinia/dist/pinia.mjs"),
       shared: path.resolve(__dirname, "../shared/shared"),
     },
@@ -37,12 +37,12 @@ export default defineConfig(async ({ command }) => ({
         },
       },
       // this is not working
-      // shared: {
-      //   vue: {
-      //     singleton: true,
-      //     requiredVersion: "^3.2.45",
-      //   },
-      // },
+      shared: {
+        vue: {
+          singleton: true,
+          requiredVersion: "^3.2.45",
+        },
+      },
       exposes: {},
       filename: "remoteEntry.js",
     }),
